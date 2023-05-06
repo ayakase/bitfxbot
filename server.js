@@ -11,7 +11,8 @@ bot.on("message", (message) => {
         const keyboard = [
             [{ text: "Who are you?" }, { text: "How to get started?" }],
             [{ text: "How to make money from BitFx" }, { text: "How do I view trade result" }],
-            [{ text: "Which brokers are the best" }, { text: "How much can I make per month" }],
+            [{ text: "Which brokers are the best" }, { text: "Payment Methods" }],
+            [{ text: "How much can I make per month" }],
             [{ text: "▶️ Forex Signal Plan Details ◀️" }],
             [{ text: "▶️ Crypto Signal Plan Details ◀️" }],
             [{ text: "▶️ Investment Plan Details ◀️" }],
@@ -21,7 +22,7 @@ bot.on("message", (message) => {
         ];
         const replyMarkup = {
             keyboard,
-            one_time_keyboard: true,
+            one_time_keyboard: false,
         };
         bot.sendMessage(chatId, `Nice to meet you ${fullName} !, I am BitFxBot`, {
             reply_markup: replyMarkup,
@@ -42,8 +43,17 @@ bot.on("message", (message) => {
         bot.sendMessage(chatId, '📝 Step 1: Read our detailed planning and pricing.\n👥 Step 2: Join our free trading community.\n💰 Step 3: Subscribe to our signal services or investment service.\n💳 Step 4: Make payment.\n📈 Step 5: Follow our signal instruction to trade profitable or sit back & receive passive income accordingly.', { parse_mode: 'Markdown' });
     } else if (messageText.includes('admin')) {
         bot.sendMessage(chatId, `Please contact our <b>Admin</b> at: <a href="t.me/BitFxSignalsTeam"> BitFx Admin </a> for further details `, { parse_mode: 'HTML' })
-    } else if (messageText.includes("forex")) {
-        bot.sendMessage(chatId, 'Please choose an option:', {
+    } else if (messageText.includes('payment')) {
+        bot.sendMessage(chatId, 'We accept Paypal, Skrill, Crypto (ETH, BTC, Solana, USDT, BNB, ADA,…). For detail instruction, please contact us.')
+    } else if (messageText.includes('how much can i make per month')) {
+        bot.sendMessage(chatId, `It depends on what plan you choose, but at most you can make up to $3000-5000 per month with our services!`)
+    } else if (messageText.includes('how do i view trade result')) {
+        bot.sendMessage(chatId, `no answer`)
+    } else if (messageText.includes('free channel')) {
+        bot.sendMessage(chatId, `Sure! you can join our free channel here: `)
+    }
+    else if (messageText.includes("forex")) {
+        bot.sendMessage(chatId, 'These are the Forex Signal plans that we offer, choose one to see detail:', {
             reply_markup: {
                 inline_keyboard: [
                     [{ text: 'Trial Plan - $6.99', callback_data: 'forextrial' }],
@@ -53,7 +63,7 @@ bot.on("message", (message) => {
             }
         })
     } else if (messageText.includes("crypto")) {
-        bot.sendMessage(chatId, 'Please choose an option:', {
+        bot.sendMessage(chatId, 'These are the Crypto Signal plans that we offer, choose one to see detail:', {
             reply_markup: {
                 inline_keyboard: [
                     [{ text: 'Trial Plan - $13.99', callback_data: 'cryptotrial' }],
@@ -64,7 +74,7 @@ bot.on("message", (message) => {
             }
         })
     } else if (messageText.includes("invest")) {
-        bot.sendMessage(chatId, 'Please choose an option:', {
+        bot.sendMessage(chatId, 'We also give you an oppoturnity to invest in our service and get high passive income:', {
             reply_markup: {
                 inline_keyboard: [
                     [{ text: 'Conservative - 30% APR', callback_data: 'conservative' }],
@@ -74,7 +84,7 @@ bot.on("message", (message) => {
             }
         })
     } else if (messageText.includes("install")) {
-        bot.sendMessage(chatId, 'Please choose an option:', {
+        bot.sendMessage(chatId, 'We also assist our dear customer with the Packages and System Installation service:', {
             reply_markup: {
                 inline_keyboard: [
                     [{ text: 'EAs Package - $10', callback_data: 'eapackage' }],
