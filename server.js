@@ -1,3 +1,5 @@
+const express = require('express');
+const app = express();
 const TelegramBot = require("node-telegram-bot-api");
 const token = "6003262706:AAE7QqjmDALycv4flVGohW7CP2-8co9ET0c";
 const bot = new TelegramBot(token, { polling: true });
@@ -5,7 +7,7 @@ const bot = new TelegramBot(token, { polling: true });
 // const Plan = require('./model/plan');
 // const Sequelize = require('sequelize');
 // const { Op } = Sequelize;
-
+const port = process.env.PORT || 3000;
 bot.on("message", (message) => {
     const chatId = message.chat.id;
     const messageText = message.text.toLowerCase();
@@ -338,4 +340,7 @@ bot.on('callback_query', (query) => {
             }
         });
     }
+});
+app.listen(port, () => {
+    console.log(`App listening on port ${port}`);
 });
