@@ -1,7 +1,11 @@
 const TelegramBot = require("node-telegram-bot-api");
 const token = "6003262706:AAE7QqjmDALycv4flVGohW7CP2-8co9ET0c";
 const bot = new TelegramBot(token, { polling: true });
-// const con = require("./connection");
+// const Question = require('./model/question');
+// const Plan = require('./model/plan');
+// const Sequelize = require('sequelize');
+// const { Op } = Sequelize;
+
 bot.on("message", (message) => {
     const chatId = message.chat.id;
     const messageText = message.text.toLowerCase();
@@ -29,31 +33,119 @@ bot.on("message", (message) => {
             reply_markup: replyMarkup,
         });
     } else if (messageText.includes('how to make money from bitfx')) {
+        // Question.update(
+        //     { number: Sequelize.literal('number + 1') },
+        //     { where: { question: { [Sequelize.Op.like]: '%money%' } } }
+        // ).then((result) => {
+        //     console.log(`Updated ${result[0]} rows`);
+        // }).catch((err) => {
+        //     console.error(err);
+        // });
         bot.sendMessage(chatId, 'We provide Forex signal, Crypto signal service and investment service.\n\nFor those who know about the Forex and Crypto market, by subscribing to Signal services, Subscribers will be granted access to a VIP channel where you will receive profitable trading signals with detailed trade plan and risk management. See our Forex and Crypto signals in Our Services page.\n\nFor those who are newbies in the Forex & Crypto market, we provide investment service for you to earn passive income from 30% APR to 100% APR. See our investment service in Our Services page.', { parse_mode: 'Markdown' });
     } else if (messageText.includes("broker")) {
+        // Question.update(
+        //     { number: Sequelize.literal('number + 1') },
+        //     { where: { question: { [Sequelize.Op.like]: '%broker%' } } }
+        // ).then((result) => {
+        //     console.log(`Updated ${result[0]} rows`);
+        // }).catch((err) => {
+        //     console.error(err);
+        // });
         bot.sendMessage(chatId, "Some of the most popular and reputable brokers in the industry include Interactive Brokers, TD Ameritrade, Charles Schwab, Fidelity, E*TRADE, and Robinhood");
     } else if (messageText.includes("free trial")) {
+        // Question.update(
+        //     { number: Sequelize.literal('number + 1') },
+        //     { where: { question: { [Sequelize.Op.like]: '%trial%' } } }
+        // ).then((result) => {
+        //     console.log(`Updated ${result[0]} rows`);
+        // }).catch((err) => {
+        //     console.error(err);
+        // });
         bot.sendMessage(chatId, 'No you can’t, our lowest price is $6.99 for 1 day access Forex signal plan and $13.99 for 1 day access for Crypto signal plan. You will receive 3-5 trading signals.\nHowever, alternatively, by joining our free trading community you will receive our daily market analysis, hot breaking news and market sentiment. Once in a while, we will publish free trading signals (you can use as a trial).');
     } else if (messageText.includes('free signal')) {
+        // Question.update(
+        //     { number: Sequelize.literal('number + 1') },
+        //     { where: { question: { [Sequelize.Op.like]: '%free signal%' } } }
+        // ).then((result) => {
+        //     console.log(`Updated ${result[0]} rows`);
+        // }).catch((err) => {
+        //     console.error(err);
+        // });
         bot.sendMessage(chatId, 'Yes, you can. By introducing a person who subscribes to our signal service or introducing an investor subscribed to our investment plan.\n\nFor each successful referral, you can earn up to 25% commission. Contact us now to learn more about our referral program!', { parse_mode: 'Markdown' });
     } else if (messageText.includes("hi") || messageText.includes("hello")) {
         bot.sendMessage(chatId, `Nice to meet you ${fullName} \n 😍`);
     } else if ((messageText.includes("who") || messageText.includes("what")) && (messageText.includes("r") || messageText.includes("are")) && (messageText.includes("you") || messageText.includes("u"))) {
         bot.sendMessage(chatId, "We are a community of talented, passionate, and independent thinkers who share a commitment for excellence. By fostering a culture of openness, transparency, we strive to unlock the most complex questions in investment strategy. ");
     } else if (messageText.includes("how to get started")) {
+        // Question.update(
+        //     { number: Sequelize.literal('number + 1') },
+        //     { where: { question: { [Sequelize.Op.like]: '%started%' } } }
+        // ).then((result) => {
+        //     console.log(`Updated ${result[0]} rows`);
+        // }).catch((err) => {
+        //     console.error(err);
+        // });
         bot.sendMessage(chatId, '📝 Step 1: Read our detailed planning and pricing.\n👥 Step 2: Join our free trading community.\n💰 Step 3: Subscribe to our signal services or investment service.\n💳 Step 4: Make payment.\n📈 Step 5: Follow our signal instruction to trade profitable or sit back & receive passive income accordingly.', { parse_mode: 'Markdown' });
     } else if (messageText.includes('admin')) {
+        // Question.update(
+        //     { number: Sequelize.literal('number + 1') },
+        //     { where: { question: { [Sequelize.Op.like]: '%admin%' } } }
+        // ).then((result) => {
+        //     console.log(`Updated ${result[0]} rows`);
+        // }).catch((err) => {
+        //     console.error(err);
+        // });
         bot.sendMessage(chatId, `Please contact our <b>Admin</b> at: <a href="t.me/BitFxSignalsTeam"> BitFx Admin </a> for further details `, { parse_mode: 'HTML' })
     } else if (messageText.includes('payment')) {
+        // Question.update(
+        //     { number: Sequelize.literal('number + 1') },
+        //     { where: { question: { [Sequelize.Op.like]: '%payment%' } } }
+        // ).then((result) => {
+        //     console.log(`Updated ${result[0]} rows`);
+        // }).catch((err) => {
+        //     console.error(err);
+        // });
         bot.sendMessage(chatId, 'We accept Paypal, Skrill, Crypto (ETH, BTC, Solana, USDT, BNB, ADA,…). For detail instruction, please contact us.')
     } else if (messageText.includes('how much can i make per month')) {
+        // Question.update(
+        //     { number: Sequelize.literal('number + 1') },
+        //     { where: { question: { [Sequelize.Op.like]: '%month%' } } }
+        // ).then((result) => {
+        //     console.log(`Updated ${result[0]} rows`);
+        // }).catch((err) => {
+        //     console.error(err);
+        // });
         bot.sendMessage(chatId, `It depends on what plan you choose, but at most you can make up to $3000-5000 per month with our services!`)
     } else if (messageText.includes('how do i view trade result')) {
+        // Question.update(
+        //     { number: Sequelize.literal('number + 1') },
+        //     { where: { question: { [Sequelize.Op.like]: '%result%' } } }
+        // ).then((result) => {
+        //     console.log(`Updated ${result[0]} rows`);
+        // }).catch((err) => {
+        //     console.error(err);
+        // });
         bot.sendMessage(chatId, `no answer`)
     } else if (messageText.includes('free channel')) {
+        // Question.update(
+        //     { number: Sequelize.literal('number + 1') },
+        //     { where: { question: { [Sequelize.Op.like]: '%channel%' } } }
+        // ).then((result) => {
+        //     console.log(`Updated ${result[0]} rows`);
+        // }).catch((err) => {
+        //     console.error(err);
+        // });
         bot.sendMessage(chatId, `Sure! you can join our free channel here: `)
     }
     else if (messageText.includes("forex")) {
+        // Question.update(
+        //     { number: Sequelize.literal('number + 1') },
+        //     { where: { question: { [Sequelize.Op.like]: '%Forex Signal%' } } }
+        // ).then((result) => {
+        //     console.log(`Updated ${result[0]} rows`);
+        // }).catch((err) => {
+        //     console.error(err);
+        // });
         bot.sendMessage(chatId, 'These are the Forex Signal plans that we offer, choose one to see detail:', {
             reply_markup: {
                 inline_keyboard: [
@@ -64,6 +156,14 @@ bot.on("message", (message) => {
             }
         })
     } else if (messageText.includes("crypto")) {
+        // Question.update(
+        //     { number: Sequelize.literal('number + 1') },
+        //     { where: { question: { [Sequelize.Op.like]: '%Crypto Signal%' } } }
+        // ).then((result) => {
+        //     console.log(`Updated ${result[0]} rows`);
+        // }).catch((err) => {
+        //     console.error(err);
+        // });
         bot.sendMessage(chatId, 'These are the Crypto Signal plans that we offer, choose one to see detail:', {
             reply_markup: {
                 inline_keyboard: [
@@ -75,6 +175,14 @@ bot.on("message", (message) => {
             }
         })
     } else if (messageText.includes("invest")) {
+        // Question.update(
+        //     { number: Sequelize.literal('number + 1') },
+        //     { where: { question: { [Sequelize.Op.like]: '%Investment Plan%' } } }
+        // ).then((result) => {
+        //     console.log(`Updated ${result[0]} rows`);
+        // }).catch((err) => {
+        //     console.error(err);
+        // });
         bot.sendMessage(chatId, 'We also give you an oppoturnity to invest in our service and get high passive income:', {
             reply_markup: {
                 inline_keyboard: [
@@ -85,6 +193,14 @@ bot.on("message", (message) => {
             }
         })
     } else if (messageText.includes("install")) {
+        // Question.update(
+        //     { number: Sequelize.literal('number + 1') },
+        //     { where: { question: { [Sequelize.Op.like]: '%System Installation%' } } }
+        // ).then((result) => {
+        //     console.log(`Updated ${result[0]} rows`);
+        // }).catch((err) => {
+        //     console.error(err);
+        // });
         bot.sendMessage(chatId, 'We also assist our dear customer with the Packages and System Installation service:', {
             reply_markup: {
                 inline_keyboard: [
