@@ -7,6 +7,7 @@ const bot = new TelegramBot(token, { polling: true });
 // const Plan = require('./model/plan');
 // const Sequelize = require('sequelize');
 // const { Op } = Sequelize;
+//something
 const port = process.env.PORT || 3000;
 bot.on("message", (message) => {
     const chatId = message.chat.id;
